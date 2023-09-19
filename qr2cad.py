@@ -103,9 +103,9 @@ def make_scad(dxf, scadfilename):
         openscadexec = mac
     outfilename = 'qr2cad.%s' % ('dxf' if dxf else 'stl')
     command = [openscadexec, '-m', 'make', '-x' if dxf else '-s', outfilename, scadfilename]
-    print(f'Exporting to %s'.format('DXF' if dxf else 'STL'))
+    print('Exporting to {0}'.format('DXF' if dxf else 'STL'))
     subprocess.call(command)
-    print(f'%s file is %s'.format('DXF' if dxf else 'STL', outfilename))
+    print('{0} file is {1}'.format('DXF' if dxf else 'STL', outfilename))
 
 def display_matrix_core(scale):
     return """
