@@ -24,7 +24,7 @@ import subprocess
 
 from argparse import ArgumentParser
 from PIL import Image
-from StringIO import StringIO
+from io import StringIO
 
 
 def get_args():
@@ -91,7 +91,7 @@ matrix_cols = %i;
     f.write('];')
     f.write(display_matrix_core(scale))
     f.close()
-    print 'SCAD file is '+filename
+    print(f'SCAD file is {filename}')
 
 def make_scad(dxf, scadfilename):
     openscadexec = 'openscad'
@@ -103,9 +103,9 @@ def make_scad(dxf, scadfilename):
         openscadexec = mac
     outfilename = 'qr2cad.%s' % ('dxf' if dxf else 'stl')
     command = [openscadexec, '-m', 'make', '-x' if dxf else '-s', outfilename, scadfilename]
-    print 'Exporting to %s' % ('DXF' if dxf else 'STL')
+    print(f'Exporting to %s'.format('DXF' if dxf else 'STL'))
     subprocess.call(command)
-    print '%s file is %s' % ('DXF' if dxf else 'STL', outfilename)
+    print(f'%s file is %s'.format('DXF' if dxf else 'STL', outfilename))
 
 def display_matrix_core(scale):
     return """
