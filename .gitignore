@@ -1,4 +1,4 @@
 *~
 *.pyc
-env
+venv
 qr2cad.scad
